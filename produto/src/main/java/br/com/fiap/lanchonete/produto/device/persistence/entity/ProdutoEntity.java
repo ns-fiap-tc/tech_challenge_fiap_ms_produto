@@ -26,9 +26,6 @@ public class ProdutoEntity {
     @SequenceGenerator(name="produtoIdGen", sequenceName="sq_tb_produto", initialValue=1, allocationSize=1)
     private Long id;
 
-    @Column(name = "id_ref")
-    private Long idRef;
-
     @Column(name = "nome")
     private String nome;
 
