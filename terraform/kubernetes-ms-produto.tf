@@ -94,7 +94,7 @@ resource "kubernetes_service" "service-ms-produto" {
     port {
       port = "80"
       target_port = "8080"
-      node_port = "30001"
+      node_port = "30002"
     }
     type = "LoadBalancer"
   }
