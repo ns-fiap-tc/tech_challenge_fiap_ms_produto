@@ -31,6 +31,7 @@
     <modules>
         <module>produto-commons</module>
         <module>produto</module>
+        <module>coverage</module>
     </modules>
 
     <dependencyManagement>
@@ -100,6 +101,18 @@
                 <artifactId>produto</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>3.4.0</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -130,6 +143,46 @@
                         <compilerArgs>
                             <arg>-Amapstruct.defaultComponentModel=spring</arg>
                         </compilerArgs>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath> <!-- necessário para evitar problemas com JPMS -->
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.11</version>
+                    <executions>
+                        <!-- Ativa o agente antes dos testes (fase initialize) -->
+                        <execution>
+                            <id>prepare-agent</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <!-- Gera relatório simples após testes (fase prepare-package) -->
+                        <execution>
+                            <id>report</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <excludes>
+                            <exclude>**br/com/fiap/lanchonete/produto/commons/mapper/**/*</exclude>
+                            <exclude>**br/com/fiap/lanchonete/produtoo/commons/persistence/**/*</exclude>
+                            <exclude>**br/com/fiap/lanchonete/produto/device/**/*</exclude>
+                            <exclude>**br/com/fiap/lanchonete/produto/infrastructure/**/*</exclude>
+                            <exclude>**/*Application.class</exclude>
+                            <exclude>**/*Test.class</exclude>
+                            <exclude>**/*IT.class</exclude> </excludes>
                     </configuration>
                 </plugin>
             </plugins>
