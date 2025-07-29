@@ -1,6 +1,18 @@
 # FIAP Tech Challenge - Microsserviço de produto
 
+[![Terraform Deploy](https://github.com/ns-fiap-tc/tech_challenge_fiap_ms_produto/actions/workflows/deploy.yml/badge.svg)](https://github.com/ns-fiap-tc/tech_challenge_fiap_ms_produto/actions/workflows/deploy.yml)
+[![SonarQube](https://github.com/ns-fiap-tc/tech_challenge_fiap_ms_produto/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/ns-fiap-tc/tech_challenge_fiap_ms_produto/actions/workflows/sonarcloud.yml)
+[![Build and Push Docker Images](https://github.com/ns-fiap-tc/tech_challenge_fiap_ms_produto/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ns-fiap-tc/tech_challenge_fiap_ms_produto/actions/workflows/docker-build.yml)
+
 Este é o repositório que contém o código fonte do serviço de produto da aplicação [Lanchonete App](https://github.com/ns-fiap-tc/tech_challenge_fiap). Nele você também encontrará arquivos de configuração do Terraform que fazem o deploy da aplicação na AWS.
+
+## Cobertura de Testes
+O projeto contém testes automatizados e Sonar integrado, abaixo evidência de cobertura dos testes + link de referência para os dados do Sonar
+<img width="1755" height="219" alt="Screenshot 2025-07-29 at 12 02 01" src="https://github.com/user-attachments/assets/c9e75cb1-1325-4e9f-bb8e-6ffa4c595108" />
+<img width="1418" height="948" alt="Screenshot 2025-07-29 at 12 04 00" src="https://github.com/user-attachments/assets/76db662e-4667-49b2-9971-8b45784ede84" />
+
+
+- Link Sonar: https://sonarcloud.io/summary/new_code?id=ns-fiap-tc_tech_challenge_fiap_ms_produto&branch=main
 
 ## Passos para o provisionamento
 > Para completo funcionamento da plataforma, é necessário seguir o seguinte fluxo de provisionamento:
