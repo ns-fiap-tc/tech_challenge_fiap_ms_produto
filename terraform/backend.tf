@@ -2,7 +2,7 @@
 terraform {
   backend "s3" {
     bucket         = "tc-lanchonete-tfstate-bucket"
-    key            = "tech-challenge-app/terraform.tfstate"
+    key            = "tech-challenge-app-ms-produto/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-lock"
     encrypt        = true
